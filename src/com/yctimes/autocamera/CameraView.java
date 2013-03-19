@@ -7,13 +7,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.example.autocamera.R;
-
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.CameraInfo;
@@ -29,6 +31,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	private Camera camera;
 	private Context context;
 	private Timer timer = null;
+	private BarCodeDecoder barCodeDecoder;
 	
 	AutoFocusCallback focusCallback = new AutoFocusCallback() {
 		@Override
@@ -45,6 +48,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		this.context = context;
 		holder = getHolder();
 		holder.addCallback(this);
+		barCodeDecoder = new BarCodeDecoder();
 	}
 
 	private int getCameraId(boolean isFront) {
@@ -142,15 +146,25 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	public void onPictureTaken(byte[] data, Camera camera) {
 		try {
 			System.out.println("onPictureTaken");
-//			Bitmap picture = BitmapFactory.decodeByteArray(data, 0, data.length);
+			Bitmap picture = BitmapFactory.decodeByteArray(data, 0, data.length);
 //			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //			picture.compress(Bitmap.CompressFormat.JPEG, 100, baos);
 			
 			//FIXME savePicToGallery
 //			savePicToGallery(data);
+			Map<String, Object> decodeMap = barCodeDecoder.decode(picture);
+			boolean success = (Boolean) decodeMap.get("result");
+			if(success) {
+				String info = (String) decodeMap.get("info");
+				Intent intent = new Intent(this.context, ResultActivity.class);
+				intent.putExtra("info", info);
+				((Activity) this.context).startActivityForResult(intent, MainActivity.requestCode_barcode);
+			}
+			else {
+				camera.startPreview();
+			}
 			
 //			baos.close();
-			camera.startPreview();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -189,7 +203,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 
 //	@Override
 //	public boolean onTouchEvent(MotionEvent event) {
-//		// TODO Auto-generated method stub
 //		this.context.A
 //		this.context.requestWindowFeature(Window.FEATURE_NO_TITLE);
 //		return super.onTouchEvent(event);
@@ -200,7 +213,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 ////∫· ˙∆¡«–ªª
 //@Override
 //public void onConfigurationChanged(Configuration newConfig) {
-//        // TODO Auto-generated method stub
 //        super.onConfigurationChanged(newConfig);
 //        if(newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
 //                //∫·∆¡

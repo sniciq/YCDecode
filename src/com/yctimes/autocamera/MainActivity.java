@@ -1,19 +1,18 @@
 package com.yctimes.autocamera;
 
-import com.example.autocamera.R;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
-import android.view.MotionEvent;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnTouchListener;
-import android.view.WindowManager;
 
 public class MainActivity extends Activity {
 	private CameraView cameraView;
+	private static final int requestCode_setting = 1;
+	public static final int requestCode_barcode = 2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +48,33 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_settings:
+			Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+			startActivityForResult(intent, requestCode_setting);
+			break;
+		default:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode == requestCode_setting) {
+			//FIXME 由设置页面返回
+			System.out.println("AAAAAAAAAAA");
+		}
+		else if(requestCode == requestCode_barcode) {
+			//FIXME 由结果页面返回
+			System.out.println("BBBBBBBBBBBB");
+		}
 	}
 
 	@Override
