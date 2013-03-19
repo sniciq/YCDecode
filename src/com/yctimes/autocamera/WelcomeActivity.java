@@ -15,7 +15,7 @@ public class WelcomeActivity extends Activity {
 			public void run() {
 				try {
 					int waited = 0;
-					while (waited < 3000) {
+					while (waited < 1000) {
 						sleep(100);
 						waited += 100;
 					}

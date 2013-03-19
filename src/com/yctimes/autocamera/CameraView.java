@@ -21,6 +21,7 @@ import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.CameraInfo;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	private Context context;
 	private Timer timer = null;
 	private BarCodeDecoder barCodeDecoder;
+	private List<Camera.Size> supportedPictureSizes = null;
 	
 	AutoFocusCallback focusCallback = new AutoFocusCallback() {
 		@Override
@@ -44,13 +46,17 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	};
 
 	public CameraView(Context context) {
-		super(context);
+		this(context, null);
+	}
+	
+	public CameraView(Context context, AttributeSet attrs) {
+		super(context, attrs);
 		this.context = context;
 		holder = getHolder();
 		holder.addCallback(this);
 		barCodeDecoder = new BarCodeDecoder();
 	}
-
+	
 	private int getCameraId(boolean isFront) {
 		CameraInfo ci = new CameraInfo();
 		for (int i = 0; i < Camera.getNumberOfCameras(); i++) {
@@ -85,8 +91,8 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		try {
 			Camera.Parameters perameters = camera.getParameters();
 			
-			List<Camera.Size> sizes = perameters.getSupportedPictureSizes();
-			for(Camera.Size s : sizes) {
+			supportedPictureSizes = perameters.getSupportedPictureSizes();
+			for(Camera.Size s : supportedPictureSizes) {
 //				System.out.println(s.width + "," + s.height);
 //				perameters.setPreviewSize(s.width, s.height);
 //				break;
@@ -198,7 +204,11 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			public void run() {
 				doFocusAndTakePic();
 			}
-		}, 3 * 1000, 5 * 1000);
+		}, 3 * 1000, 2 * 1000);
+	}
+
+	public List<Camera.Size> getSupportedPictureSizes() {
+		return supportedPictureSizes;
 	}
 
 //	@Override

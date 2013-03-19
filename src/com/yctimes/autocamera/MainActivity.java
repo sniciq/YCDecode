@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
 //		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //		getActionBar().hide();
-		cameraView = new CameraView(this);
+//		cameraView = new CameraView(this);
 //		cameraView.setOnTouchListener(new OnTouchListener() {
 //			@Override
 //			public boolean onTouch(View v, MotionEvent event) {
@@ -36,7 +36,10 @@ public class MainActivity extends Activity {
 //			}
 //		});
 		
-		setContentView(cameraView);
+//		setContentView(cameraView);
+		setContentView(R.layout.activity_main);
+		cameraView = (CameraView) findViewById(R.id.cameraView);
+		
 	}
 
 	@Override
@@ -57,6 +60,9 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.action_settings:
 			Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+//			intent.putExtra(name, value)
+//			intent.putExtra("supportSizes", cameraView.getSupportedPictureSizes());
+			
 			startActivityForResult(intent, requestCode_setting);
 			break;
 		default:
