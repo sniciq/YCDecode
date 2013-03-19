@@ -22,6 +22,7 @@ public class BarCodeDecoder {
 	 * @return
 	 */
 	public Map<String, Object> decode(Bitmap bitmap) {
+		//FIXME ÌõÂë½âÎö
 		Map<String, Object> retMap = new HashMap<String, Object>();
 		retMap.put("result", true);
 		String timeStamp = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date());

@@ -26,7 +26,6 @@ public class WelcomeActivity extends Activity {
 					Intent i = new Intent();
 					i.setClassName("com.yctimes.autocamera", "com.yctimes.autocamera.MainActivity");
 					startActivity(i);
-					finish();
 				}
 			}
 		};
