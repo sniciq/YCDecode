@@ -11,6 +11,7 @@ import android.view.View;
 
 public class MainActivity extends Activity {
 	private CameraView cameraView;
+	private AppSetting appSetting;
 	private static final int requestCode_setting = 1;
 	public static final int requestCode_barcode = 2;
 
@@ -38,8 +39,11 @@ public class MainActivity extends Activity {
 		
 //		setContentView(cameraView);
 		setContentView(R.layout.activity_main);
+		appSetting = new AppSetting(this);
+		appSetting.init();
 		cameraView = (CameraView) findViewById(R.id.cameraView);
-		
+		cameraView.setConfigPicSize(appSetting.getConfigPictureSize());
+		cameraView.setTakePicPeriod(appSetting.getTakePicPeriod());
 	}
 
 	@Override
@@ -60,9 +64,9 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.action_settings:
 			Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-//			intent.putExtra(name, value)
-//			intent.putExtra("supportSizes", cameraView.getSupportedPictureSizes());
-			
+			intent.putStringArrayListExtra("supportSizes", cameraView.getSupportedPicSizes());
+			intent.putExtra(AppSetting.PictureSize, appSetting.getConfigPictureSize());
+			intent.putExtra(AppSetting.TakePicPeriod, appSetting.getTakePicPeriod());
 			startActivityForResult(intent, requestCode_setting);
 			break;
 		default:
@@ -74,8 +78,14 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(requestCode == requestCode_setting) {
-			//FIXME 由设置页面返回
-			System.out.println("AAAAAAAAAAA");
+			//由设置页面返回
+			if(resultCode == RESULT_OK) {
+				String ss = (String) data.getExtras().get(AppSetting.PictureSize);
+				int aa =(Integer) data.getExtras().get(AppSetting.TakePicPeriod);
+				appSetting.save(ss, aa);
+				cameraView.setConfigPicSize(appSetting.getConfigPictureSize());
+				cameraView.setTakePicPeriod(appSetting.getTakePicPeriod());
+			}
 		}
 		else if(requestCode == requestCode_barcode) {
 			//FIXME 由结果页面返回

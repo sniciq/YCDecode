@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -31,9 +32,12 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	private SurfaceHolder holder;
 	private Camera camera;
 	private Context context;
+	private int[] configPicSize;
+	private int takePicPeriod;
+	
 	private Timer timer = null;
 	private BarCodeDecoder barCodeDecoder;
-	private List<Camera.Size> supportedPictureSizes = null;
+	private ArrayList<String> supportedPicSizes = new ArrayList<String>();
 	
 	AutoFocusCallback focusCallback = new AutoFocusCallback() {
 		@Override
@@ -73,14 +77,18 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		}
 		return -1; // No front-facing camera found
 	}
+	
+	private void initCamera() throws Exception {
+		int frontCamera = getCameraId(false);
+		camera = Camera.open(frontCamera);
+		camera.setDisplayOrientation(90);
+		camera.setPreviewDisplay(holder);
+	}
 
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		try {
-			int frontCamera = getCameraId(false);
-			camera = Camera.open(frontCamera);
-			camera.setDisplayOrientation(90);
-			camera.setPreviewDisplay(holder);
+			initCamera();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -91,14 +99,13 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		try {
 			Camera.Parameters perameters = camera.getParameters();
 			
-			supportedPictureSizes = perameters.getSupportedPictureSizes();
+			List<Camera.Size> supportedPictureSizes = perameters.getSupportedPictureSizes();
 			for(Camera.Size s : supportedPictureSizes) {
-//				System.out.println(s.width + "," + s.height);
-//				perameters.setPreviewSize(s.width, s.height);
-//				break;
+				supportedPicSizes.add(s.width + "X" + s.height);
 			}
 			
-//			perameters.setPictureSize(sizes.get(0).width, sizes.get(0).height);
+//			perameters.setPreviewSize(320, 240);
+			perameters.setPictureSize(configPicSize[0], configPicSize[1]);
 			camera.setParameters(perameters);
 			
 			camera.startPreview();
@@ -157,7 +164,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 //			picture.compress(Bitmap.CompressFormat.JPEG, 100, baos);
 			
 			//FIXME savePicToGallery
-//			savePicToGallery(data);
+			savePicToGallery(data);
 			Map<String, Object> decodeMap = barCodeDecoder.decode(picture);
 			boolean success = (Boolean) decodeMap.get("result");
 			if(success) {
@@ -181,10 +188,21 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		this.timer.cancel();
 		this.timer.purge();
 		this.timer = null;
+//		camera.release();
 	}
 
 	public void resume() {
-		this.startTimer();
+		try {
+			if(camera != null) {
+				Camera.Parameters perameters = camera.getParameters();
+				perameters.setPictureSize(configPicSize[0], configPicSize[1]);
+				camera.setParameters(perameters);
+			}
+			this.startTimer();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void doFocusAndTakePic() {
@@ -204,11 +222,19 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			public void run() {
 				doFocusAndTakePic();
 			}
-		}, 3 * 1000, 2 * 1000);
+		}, 3 * 1000, takePicPeriod * 1000);
 	}
 
-	public List<Camera.Size> getSupportedPictureSizes() {
-		return supportedPictureSizes;
+	public ArrayList<String> getSupportedPicSizes() {
+		return supportedPicSizes;
+	}
+
+	public void setConfigPicSize(int[] configPicSize) {
+		this.configPicSize = configPicSize;
+	}
+
+	public void setTakePicPeriod(int takePicPeriod) {
+		this.takePicPeriod = takePicPeriod;
 	}
 
 //	@Override
