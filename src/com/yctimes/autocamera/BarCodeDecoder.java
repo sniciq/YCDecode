@@ -14,6 +14,8 @@ import android.graphics.Bitmap;
  */
 public class BarCodeDecoder {
 	
+	public native String doDecode(Bitmap bitMap);
+	
 	/**
 	 * key, value<br/>
 	 * result, true/false<br/>
@@ -24,10 +26,19 @@ public class BarCodeDecoder {
 	public Map<String, Object> decode(Bitmap bitmap) {
 		//FIXME ÌõÂë½âÎö
 		Map<String, Object> retMap = new HashMap<String, Object>();
-		retMap.put("result", false);
-		String timeStamp = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date());
-		retMap.put("info", timeStamp + "aaaaaaaaaaaaaaaaaavvvvvvvvvvvvvvvvvvvvv");
+		String s = doDecode(bitmap);
+		if(!s.trim().equals("")) {
+			retMap.put("result", true);
+			String timeStamp = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date());
+			retMap.put("info", timeStamp + "|" + s);
+		}
+		else {
+			retMap.put("result", false);
+		}
 		return retMap;
 	}
-
+	
+	static {  
+        System.loadLibrary("YCDecode");  
+    }
 }

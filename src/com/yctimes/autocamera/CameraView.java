@@ -1,5 +1,6 @@
 package com.yctimes.autocamera;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -159,9 +160,12 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	public void onPictureTaken(byte[] data, Camera camera) {
 		try {
 			System.out.println("onPictureTaken");
+			
 			Bitmap picture = BitmapFactory.decodeByteArray(data, 0, data.length);
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			picture.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			picture.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+			baos.close();
+			
 			
 			//FIXME savePicToGallery
 			savePicToGallery(data);
@@ -176,8 +180,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			else {
 				camera.startPreview();
 			}
-			
-//			baos.close();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
