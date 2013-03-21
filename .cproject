@@ -9,9 +9,9 @@
 				<extensions>
 					<extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.Cygwin_PE" point="org.eclipse.cdt.core.BinaryParser"/>
-					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
@@ -23,14 +23,14 @@
 					<folderInfo id="com.android.toolchain.gcc.1079966388.738398521" name="/" resourcePath="">
 						<toolChain id="com.android.toolchain.gcc.1723366630" name="com.android.toolchain.gcc" superClass="com.android.toolchain.gcc">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.PE;org.eclipse.cdt.core.Cygwin_PE" id="com.android.targetPlatform.1504888463" isAbstract="false" superClass="com.android.targetPlatform"/>
-							<builder id="com.android.builder.1637327280" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder" superClass="com.android.builder">
-								<outputEntries>
-									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="obj"/>
-									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="libs"/>
-								</outputEntries>
-							</builder>
+							<builder id="com.android.builder.442115651" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder" superClass="com.android.builder"/>
 							<tool id="com.android.gcc.compiler.763655670" name="Android GCC Compiler" superClass="com.android.gcc.compiler">
 								<option id="com.android.gcc.option.includePath.525239796" superClass="com.android.gcc.option.includePath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;D:\android-ndk-r8d\platforms\android-14\arch-arm\usr\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;D:\android-ndk-r8d\platforms\android-14\arch-arm\usr\lib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;D:\android-ndk-r8d\sources\android\cpufeatures&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;D:\android-ndk-r8d\toolchains\arm-linux-androideabi-4.4.3\prebuilt\windows\lib\gcc\arm-linux-androideabi\4.4.3\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;D:\android-ndk-r8d\sources\cxx-stl\gnu-libstdc++\4.4.3\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;c:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include\c++&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;c:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include\c++\i686-pc-cygwin&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include\c++\backward&quot;"/>
@@ -38,8 +38,6 @@
 									<listOptionValue builtIn="false" value="&quot;c:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include-fixed&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;c:\cygwin\usr\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;c:\cygwin\usr\include\w32api&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;C:\Program Files\Java\jdk1.6.0_16\include\win32&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;C:\Program Files\Java\jdk1.6.0_16\include&quot;"/>
 								</option>
 								<inputType id="com.android.gcc.inputType.119083805" superClass="com.android.gcc.inputType"/>
 							</tool>
