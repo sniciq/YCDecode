@@ -11,6 +11,23 @@
         android:layout_height="fill_parent"
         android:layout_centerInParent="true"
         />
+     
+    <com.yctimes.autocamera.LocationAssistView 
+        android:id="@+id/locationAssistView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        />
+    
+    <!-- 
+    <ImageView 
+        android:src="@drawable/welcome"
+        android:contentDescription="@string/welcome"
+		android:layout_height="300dp"
+        android:layout_width="300dp"
+		android:layout_centerInParent="true"
+        />
+     -->
     <!-- 
     <Button 
         android:id="@+id/testBtn"
@@ -19,6 +36,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
         android:paddingLeft="5dp"
+        android:layout_alignBottom="@id/cameraView"
         />
- 	-->
+ 	 -->
 </RelativeLayout>

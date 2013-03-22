@@ -168,7 +168,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			
 			
 			//FIXME savePicToGallery
-			savePicToGallery(data);
+//			savePicToGallery(data);
 			Map<String, Object> decodeMap = barCodeDecoder.decode(picture);
 			boolean success = (Boolean) decodeMap.get("result");
 			if(success) {
@@ -248,15 +248,13 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	
 }
 
-////∫· ˙∆¡«–ªª
+////Ê®™Á´ñÂ±èÂ§ÑÁêÜ
 //@Override
 //public void onConfigurationChanged(Configuration newConfig) {
 //        super.onConfigurationChanged(newConfig);
 //        if(newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
-//                //∫·∆¡
 //    mCamera.setDisplayOrientation(0);
 //}else{
-//        // ˙∆¡
 //        mCamera.setDisplayOrientation(90);
 //}
 //}

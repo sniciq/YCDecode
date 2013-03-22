@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(requestCode == requestCode_setting) {
-			//由设置页面返回
+			//璁剧疆杩斿洖鍚庣殑澶勭悊
 			if(resultCode == RESULT_OK) {
 				String ss = (String) data.getExtras().get(AppSetting.PictureSize);
 				int aa =(Integer) data.getExtras().get(AppSetting.TakePicPeriod);
@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 			}
 		}
 		else if(requestCode == requestCode_barcode) {
-			//FIXME 由结果页面返回
+			//FIXME 鏉＄爜淇℃伅椤甸潰杩斿洖
 			System.out.println("BBBBBBBBBBBB");
 		}
 	}

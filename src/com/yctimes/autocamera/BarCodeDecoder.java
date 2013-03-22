@@ -9,7 +9,7 @@ import java.util.Map;
 import android.graphics.Bitmap;
 
 /**
- * 条码解析
+ * 鏉＄爜瑙ｆ瀽
  *
  */
 public class BarCodeDecoder {
@@ -19,16 +19,15 @@ public class BarCodeDecoder {
 	/**
 	 * key, value<br/>
 	 * result, true/false<br/>
-	 * info, 内容(true时为条码内容，false时为错误信息)
+	 * info, 淇℃伅(true鏃朵负鏉＄爜鍐呭false)
 	 * @param bitmap
 	 * @return
 	 */
 	public Map<String, Object> decode(Bitmap bitmap) {
-		//FIXME 条码解析
 		Map<String, Object> retMap = new HashMap<String, Object>();
 		String s = doDecode(bitmap);
 		if(!s.trim().equals("")) {
-			retMap.put("result", true);
+			retMap.put("result", false);
 			String timeStamp = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date());
 			retMap.put("info", timeStamp + "|" + s);
 		}
