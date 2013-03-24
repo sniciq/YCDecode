@@ -27,7 +27,7 @@ public class BarCodeDecoder {
 		Map<String, Object> retMap = new HashMap<String, Object>();
 		String s = doDecode(bitmap);
 		if(!s.trim().equals("")) {
-			retMap.put("result", false);
+			retMap.put("result", true);
 			String timeStamp = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date());
 			retMap.put("info", timeStamp + "|" + s);
 		}
