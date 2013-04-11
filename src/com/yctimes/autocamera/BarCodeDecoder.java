@@ -1,9 +1,6 @@
 package com.yctimes.autocamera;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import android.graphics.Bitmap;
@@ -14,7 +11,10 @@ import android.graphics.Bitmap;
  */
 public class BarCodeDecoder {
 	
-	public native String doDecode(Bitmap bitMap);
+	public native String doDecode(Bitmap bitmap);
+	
+	private void saveBWFile(Bitmap bitmap) {
+	}
 	
 	/**
 	 * key, value<br/>
@@ -24,12 +24,15 @@ public class BarCodeDecoder {
 	 * @return
 	 */
 	public Map<String, Object> decode(Bitmap bitmap) {
+		
 		Map<String, Object> retMap = new HashMap<String, Object>();
-		String s = doDecode(bitmap);
+		
+		Bitmap convertBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+        String s = doDecode(convertBitmap);
+		
 		if(!s.trim().equals("")) {
-			retMap.put("result", true);
-			String timeStamp = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date());
-			retMap.put("info", timeStamp + "|" + s);
+			retMap.put("result", true);			
+			retMap.put("info", s);
 		}
 		else {
 			retMap.put("result", false);

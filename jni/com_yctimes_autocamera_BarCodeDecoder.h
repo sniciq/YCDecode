@@ -10,7 +10,7 @@ extern "C" {
 /*
  * Class:     com_yctimes_autocamera_BarCodeDecoder
  * Method:    doDecode
- * Signature: (Landroid/graphics/Bitmap;)Ljava/lang/String;
+ * Signature: (Landroid/graphics/Bitmap;I)Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_com_yctimes_autocamera_BarCodeDecoder_doDecode
   (JNIEnv *, jobject, jobject);
