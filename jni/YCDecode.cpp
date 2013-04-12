@@ -7,11 +7,13 @@
 #include <sstream>
 #include <string>
 #include <unistd.h>
+
+/*
 #include "scdcc_decoder.h"
 #include "host_decoder.h"
 #include "scdcc_malloc.h"
 #include "scdcc_errs.h"
-
+*/
 
 /////////////////only test///////////////////////////
 ////////////////////end/////////////////////////////
@@ -20,7 +22,7 @@
 int cvThresholdOtsu(int ** grayArr, int width, int height);
 int ** initArray(int height, int width);
 
-jstring Java_com_yctimes_autocamera_BarCodeDecoder_doDecode(JNIEnv* env,
+jstring Java_com_oyctimes_autocamera_BarCodeDecoder_doDecode(JNIEnv* env,
 		jobject javaThis, jobject bitmap) {
 	using namespace std;
 	AndroidBitmapInfo infoSource;
@@ -38,6 +40,7 @@ jstring Java_com_yctimes_autocamera_BarCodeDecoder_doDecode(JNIEnv* env,
 		return (env)->NewStringUTF("");
 	}
 
+	/*
 	uint8 BWImg[115200]={0};
 
 	int w = infoSource.width;
@@ -115,7 +118,8 @@ jstring Java_com_yctimes_autocamera_BarCodeDecoder_doDecode(JNIEnv* env,
 	else {
 		return (env)->NewStringUTF("");
 	}
-
+*/
+	return (env)->NewStringUTF("");
 }
 
 int ** initArray(int width, int height){

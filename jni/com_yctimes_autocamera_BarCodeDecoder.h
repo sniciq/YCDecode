@@ -2,8 +2,8 @@
 #include <jni.h>
 /* Header for class com_yctimes_autocamera_BarCodeDecoder */
 
-#ifndef _Included_com_yctimes_autocamera_BarCodeDecoder
-#define _Included_com_yctimes_autocamera_BarCodeDecoder
+#ifndef _Included_com_oyctimes_autocamera_BarCodeDecoder
+#define _Included_com_oyctimes_autocamera_BarCodeDecoder
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -12,7 +12,7 @@ extern "C" {
  * Method:    doDecode
  * Signature: (Landroid/graphics/Bitmap;I)Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_com_yctimes_autocamera_BarCodeDecoder_doDecode
+JNIEXPORT jstring JNICALL Java_com_oyctimes_autocamera_BarCodeDecoder_doDecode
   (JNIEnv *, jobject, jobject);
 
 #ifdef __cplusplus
