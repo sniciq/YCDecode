@@ -10,10 +10,18 @@ extern "C" {
 /*
  * Class:     com_yctimes_autocamera_BarCodeDecoder
  * Method:    doDecode
+ * Signature: ([III)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_yctimes_autocamera_BarCodeDecoder_doDecode___3III
+  (JNIEnv *, jobject, jintArray, jint, jint);
+
+/*
+ * Class:     com_yctimes_autocamera_BarCodeDecoder
+ * Method:    doDecode
  * Signature: (Landroid/graphics/Bitmap;)Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_com_yctimes_autocamera_BarCodeDecoder_doDecode
-  (JNIEnv *, jobject, jobject);
+JNIEXPORT jstring JNICALL Java_com_yctimes_autocamera_BarCodeDecoder_doDecode__Landroid_graphics_Bitmap_2
+  (JNIEnv *, jobject, jobject, jobject, jint);
 
 #ifdef __cplusplus
 }
