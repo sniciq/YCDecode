@@ -119,7 +119,19 @@ jstring Java_com_oyctimes_autocamera_BarCodeDecoder_doDecode(JNIEnv* env,
 		return (env)->NewStringUTF("");
 	}
 */
-	return (env)->NewStringUTF("");
+//	unsigned char out_data[]="中文abc123";
+
+	unsigned char out_data11[]={0x61,0x62,0x63,0xC4,0xE3,0xBA,0xC3,0xA1,0xA3};//abc你好
+	string ass((char*) out_data11);
+	const char* pp = ass.c_str();
+	__android_log_print(ANDROID_LOG_INFO, "JNIMsg", "SS:%s ", out_data11);
+
+	unsigned char out_data[]="中文abc123";
+	string str((char*) out_data);
+	const char* p = str.c_str();
+
+
+	return (env)->NewStringUTF(p);
 }
 
 int ** initArray(int width, int height){
