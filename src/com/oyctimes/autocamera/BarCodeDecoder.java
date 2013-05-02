@@ -1,6 +1,8 @@
 package com.oyctimes.autocamera;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import android.graphics.Bitmap;
@@ -11,10 +13,14 @@ import android.graphics.Bitmap;
  */
 public class BarCodeDecoder {
 	
+	private List<BarCodeDecodeOverListener> decodeOverListeners = new ArrayList<BarCodeDecodeOverListener>();
+	
 	public native String doDecode(Bitmap bitmap);
 	
 	private void saveBWFile(Bitmap bitmap) {
 	}
+	
+	
 	
 	/**
 	 * key, value<br/>
@@ -43,4 +49,28 @@ public class BarCodeDecoder {
 	static {  
         System.loadLibrary("OYCDecode");  
     }
+
+	public void decodeInThread(final Bitmap picture) {
+		new Thread() {
+			public void run() {
+				Map<String, Object> decodeMap = BarCodeDecoder.this.decode(picture);
+				BarCodeDecoder.this.fireDecodeOver(decodeMap);
+			}
+		}.run();
+	}
+	
+	private void fireDecodeOver(Map<String, Object> decodeMap) {
+		for(BarCodeDecodeOverListener lis : decodeOverListeners) {
+			lis.deCodeOver(decodeMap);
+		}
+	}
+	
+	public void addListener(BarCodeDecodeOverListener lis) {
+		this.decodeOverListeners.add(lis);
+	}
+	
+	public void removeListener(BarCodeDecodeOverListener lis) {
+		this.decodeOverListeners.remove(lis);
+	}
+	
 }

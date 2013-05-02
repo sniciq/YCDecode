@@ -32,13 +32,11 @@ public class LocationAssistView extends View {
 		int top = (h - bh)/2;
 		int right = (w - bw)/2 + bw;
 		int bottom = (h - bh)/2 + bh;
-		
 //		canvas.drawRect(left, top, right, bottom, myPaint);
-		
-		
 		int miniRectSize = 30;
 		canvas.drawRect(left, top, left + miniRectSize, top + miniRectSize, myPaint);
 		canvas.drawRect(right - miniRectSize, top, right, top + miniRectSize, myPaint);
 		canvas.drawRect(left, bottom - miniRectSize, left + miniRectSize, bottom, myPaint);
+		canvas.drawRect(right - miniRectSize, bottom - miniRectSize, right, bottom, myPaint);
 	}
 }

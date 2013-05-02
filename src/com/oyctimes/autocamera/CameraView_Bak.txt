@@ -1,5 +1,6 @@
 package com.oyctimes.autocamera;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -26,10 +27,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
-public class CameraView extends SurfaceView implements SurfaceHolder.Callback, Camera.PictureCallback, BarCodeDecodeOverListener {
+public class CameraView extends SurfaceView implements SurfaceHolder.Callback, Camera.PictureCallback {
 
 	private SurfaceHolder holder;
-	private Camera myCamera;
+	private Camera camera;
 	private Context context;
 	private int[] configPicSize;
 	private int takePicPeriod;
@@ -57,7 +58,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		holder = getHolder();
 		holder.addCallback(this);
 		barCodeDecoder = new BarCodeDecoder();
-		barCodeDecoder.addListener(this);
 	}
 	
 	private int getCameraId(boolean isFront) {
@@ -79,9 +79,9 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	
 	private void initCamera() throws Exception {
 		frontCamera = getCameraId(false);
-		myCamera = Camera.open(frontCamera);
-		myCamera.setDisplayOrientation(90);
-		myCamera.setPreviewDisplay(holder);
+		camera = Camera.open(frontCamera);
+		camera.setDisplayOrientation(90);
+		camera.setPreviewDisplay(holder);
 	}
 
 	@Override
@@ -96,7 +96,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 		try {
-			Camera.Parameters perameters = myCamera.getParameters();
+			Camera.Parameters perameters = camera.getParameters();
 			
 			List<Camera.Size> supportedPictureSizes = perameters.getSupportedPictureSizes();
 			for(Camera.Size s : supportedPictureSizes) {
@@ -112,8 +112,8 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			     rotation = (cameraInfo.orientation + 90) % 360;
 			}
 			perameters.setRotation(rotation);
-			myCamera.setParameters(perameters);
-			myCamera.startPreview();
+			camera.setParameters(perameters);
+			camera.startPreview();
 			startTimer();
 		}
 		catch(Exception e) {
@@ -123,10 +123,10 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		myCamera.setPreviewCallback(null);
-		myCamera.stopPreview();
-		myCamera.release();
-		myCamera = null;
+		camera.setPreviewCallback(null);
+		camera.stopPreview();
+		camera.release();
+		camera = null;
 	}
 	
 	private File getAlbumDir() {
@@ -157,40 +157,36 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		galleryAddPic(imageF.getPath());
 		Toast.makeText(this.context, "Save Pic Successfully!", Toast.LENGTH_LONG).show();
 	}
-	
 	@Override
 	public void onPictureTaken(byte[] data, Camera camera) {
 		try {
 			Bitmap picture = BitmapFactory.decodeByteArray(data, 0, data.length);
-			camera.startPreview();
-			barCodeDecoder.decodeInThread(picture);
 			
+			//取中间区域
+			int bw = picture.getWidth() / 2;
+			int bh = picture.getHeight() / 2;
+			int x = (picture.getWidth() - bw) / 2;
+			int y = (picture.getHeight() - bh) /2;
+			Bitmap nb = Bitmap.createBitmap(picture, x, y, bw, bh);
 			
-//			//取中间区域
-//			int bw = picture.getWidth() / 2;
-//			int bh = picture.getHeight() / 2;
-//			int x = (picture.getWidth() - bw) / 2;
-//			int y = (picture.getHeight() - bh) /2;
-//			Bitmap nb = Bitmap.createBitmap(picture, x, y, bw, bh);
-//			
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			nb.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//			baos.close();
-//			
-//			//FIXME savePicToGallery
-//			savePicToGallery(nb);
-//			Map<String, Object> decodeMap = barCodeDecoder.decode(nb);
-//			boolean success = (Boolean) decodeMap.get("result");
-//			if(success) {
-//				String info = (String) decodeMap.get("info");
-//				Intent intent = new Intent(this.context, ResultActivity.class);
-//				intent.putExtra("info", info);
-//				
-//				((Activity) this.context).startActivityForResult(intent, MainActivity.requestCode_barcode);
-//			}
-//			else {
-//				camera.startPreview();
-//			}
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			nb.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+			baos.close();
+			
+			//FIXME savePicToGallery
+			savePicToGallery(nb);
+			Map<String, Object> decodeMap = barCodeDecoder.decode(nb);
+			boolean success = (Boolean) decodeMap.get("result");
+			if(success) {
+				String info = (String) decodeMap.get("info");
+				Intent intent = new Intent(this.context, ResultActivity.class);
+				intent.putExtra("info", info);
+				
+				((Activity) this.context).startActivityForResult(intent, MainActivity.requestCode_barcode);
+			}
+			else {
+				camera.startPreview();
+			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -201,14 +197,15 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		this.timer.cancel();
 		this.timer.purge();
 		this.timer = null;
+//		camera.release();
 	}
 
 	public void resume() {
 		try {
-			if(myCamera != null) {
-				Camera.Parameters perameters = myCamera.getParameters();
+			if(camera != null) {
+				Camera.Parameters perameters = camera.getParameters();
 				perameters.setPictureSize(configPicSize[0], configPicSize[1]);
-				myCamera.setParameters(perameters);
+				camera.setParameters(perameters);
 			}
 			this.startTimer();
 		}
@@ -218,9 +215,9 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	}
 
 	private void doFocusAndTakePic() {
-		if(myCamera != null) {
+		if(camera != null) {
 			System.out.println("focus start ...");
-			myCamera.autoFocus(focusCallback);
+			camera.autoFocus(focusCallback);
 		}
 	}
 	
@@ -247,17 +244,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 
 	public void setTakePicPeriod(int takePicPeriod) {
 		this.takePicPeriod = takePicPeriod;
-	}
-
-	@Override
-	public void deCodeOver(Map<String, Object> decodeMap) {
-		boolean success = (Boolean) decodeMap.get("result");
-		if(success) {
-			String info = (String) decodeMap.get("info");
-			Intent intent = new Intent(this.context, ResultActivity.class);
-			intent.putExtra("info", info);
-			((Activity) this.context).startActivityForResult(intent, MainActivity.requestCode_barcode);
-		}
 	}
 
 //	@Override
