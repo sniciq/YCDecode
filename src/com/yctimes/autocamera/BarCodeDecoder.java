@@ -1,4 +1,4 @@
-package com.oyctimes.autocamera;
+package com.yctimes.autocamera;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +47,7 @@ public class BarCodeDecoder {
 	}
 	
 	static {  
-        System.loadLibrary("OYCDecode");  
+        System.loadLibrary("YCDecode");
     }
 
 	public void decodeInThread(final Bitmap picture) {

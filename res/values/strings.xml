@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">元创二维码</string>
-    <string name="dir_name">OYCDecode</string>
+    <string name="dir_name">YCDecode</string>
     <string name="action_settings">设置</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_result">解析结果</string>

@@ -1,11 +1,9 @@
-package com.oyctimes.autocamera;
+package com.yctimes.autocamera;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
-
-import com.oyctimes.autocamera.R;
 
 import android.content.Context;
 import android.os.Environment;

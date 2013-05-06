@@ -1,4 +1,4 @@
-package com.oyctimes.autocamera;
+package com.yctimes.autocamera;
 
 import android.content.Context;
 import android.graphics.Canvas;

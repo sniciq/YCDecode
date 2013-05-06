@@ -1,5 +1,5 @@
-obj/local/armeabi/objs/OYCDecode/YCDecode.o: jni/YCDecode.cpp \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/jni.h \
+obj/local/armeabi/objs/YCDecode/YCDecode.o: jni/YCDecode.cpp \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/jni.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stdarg.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cprolog.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/config/features.h \
@@ -14,15 +14,15 @@ obj/local/armeabi/objs/OYCDecode/YCDecode.o: jni/YCDecode.cpp \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/config/_native_headers.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_epilog.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/android/bitmap.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/cdefs.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/cdefs_elf.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/android/api-level.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/stdint.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/android/bitmap.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/android/api-level.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/stdint.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stddef.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/_types.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/machine/_types.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/android/log.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/_types.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/machine/_types.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/android/log.h \
  jni/com_yctimes_autocamera_BarCodeDecoder.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/iostream \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_prolog.h \
@@ -33,18 +33,18 @@ obj/local/armeabi/objs/OYCDecode/YCDecode.o: jni/YCDecode.cpp \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cstddef.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cstring.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/string.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/string.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/malloc.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/string.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/malloc.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/using/cstring \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/types.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/posix_types.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/stddef.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/compiler.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/posix_types.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/types.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/types.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/machine/kernel.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/sysmacros.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/types.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/types.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/types.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_construct.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_new.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/../../gabi++/include/new \
@@ -54,28 +54,28 @@ obj/local/armeabi/objs/OYCDecode/YCDecode.o: jni/YCDecode.cpp \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/../../gabi++/include/exception \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cstdio.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stdio.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/stdio.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/stdio.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_iterator_base.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_ptrs_specialize.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/type_traits.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/type_manips.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_move_construct_fwk.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cwchar.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/wchar.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/wchar.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/limits.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/limits.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/limits.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/limits.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/machine/internal_types.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/machine/limits.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/syslimits.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/page.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/limits.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/limits.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/limits.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/machine/internal_types.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/machine/limits.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/syslimits.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/page.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/time.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/time.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/time.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/time.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/siginfo.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm-generic/siginfo.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/time.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/time.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/time.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/siginfo.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_mbstate_t.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_istream.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_ios.h \
@@ -86,22 +86,22 @@ obj/local/armeabi/objs/OYCDecode/YCDecode.o: jni/YCDecode.cpp \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_locale.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cstdlib.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stdlib.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/stdlib.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/alloca.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/strings.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/memory.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/stdlib.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/alloca.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/strings.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/memory.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cmath.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/math.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/math.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/math.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_threads.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/pthread.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/pthread.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/pthread.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/signal.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/signal.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/signal.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm-generic/signal.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/sigcontext.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sched.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/signal.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/signal.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sched.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_threads.c \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_ctime.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_string_fwd.h \
@@ -151,13 +151,15 @@ obj/local/armeabi/objs/OYCDecode/YCDecode.o: jni/YCDecode.cpp \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_hash_fun.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_string_io.h \
  D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_string_io.c \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/unistd.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/select.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/sysconf.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/capability.h \
- D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/pathconf.h
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/unistd.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/select.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/sysconf.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/capability.h \
+ D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/pathconf.h \
+ jni/scdcc_decoder.h jni/basetypedef.h jni/host_decoder.h \
+ jni/scdcc_malloc.h jni/scdcc_errs.h
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/jni.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/jni.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stdarg.h:
 
@@ -187,23 +189,23 @@ D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_epilog.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/android/bitmap.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/android/bitmap.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/cdefs.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/cdefs.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/cdefs_elf.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/android/api-level.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/android/api-level.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/stdint.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/stdint.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stddef.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/_types.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/_types.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/machine/_types.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/machine/_types.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/android/log.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/android/log.h:
 
 jni/com_yctimes_autocamera_BarCodeDecoder.h:
 
@@ -225,29 +227,29 @@ D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cstring.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/string.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/string.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/string.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/malloc.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/malloc.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/using/cstring:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/types.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/types.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/posix_types.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/posix_types.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/stddef.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/stddef.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/compiler.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/compiler.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/posix_types.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/posix_types.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/types.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/types.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/types.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/types.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/machine/kernel.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/machine/kernel.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/sysmacros.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_construct.h:
 
@@ -267,7 +269,7 @@ D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cstdio.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stdio.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/stdio.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/stdio.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_iterator_base.h:
 
@@ -281,35 +283,35 @@ D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_move_construct_fwk.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cwchar.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/wchar.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/wchar.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/limits.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/limits.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/limits.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/limits.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/limits.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/limits.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/limits.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/machine/internal_types.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/machine/internal_types.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/machine/limits.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/machine/limits.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/syslimits.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/syslimits.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/page.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/page.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/time.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/time.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/time.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/time.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/time.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/time.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/time.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/siginfo.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/siginfo.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm-generic/siginfo.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_mbstate_t.h:
 
@@ -331,37 +333,37 @@ D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cstdlib.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stdlib.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/stdlib.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/stdlib.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/alloca.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/alloca.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/strings.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/strings.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/memory.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/memory.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_cmath.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/math.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/math.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/math.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_threads.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/pthread.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/pthread.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/pthread.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/signal.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/../include/signal.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/../include/signal.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/signal.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/signal.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm-generic/signal.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/asm/sigcontext.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sched.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sched.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_threads.c:
 
@@ -461,12 +463,22 @@ D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_string_io.h:
 
 D:/android-ndk-r8d/sources/cxx-stl/stlport/stlport/stl/_string_io.c:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/unistd.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/unistd.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/select.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/select.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/sys/sysconf.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/sys/sysconf.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/linux/capability.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/linux/capability.h:
 
-D:/android-ndk-r8d/platforms/android-14/arch-arm/usr/include/pathconf.h:
+D:/android-ndk-r8d/platforms/android-9/arch-arm/usr/include/pathconf.h:
+
+jni/scdcc_decoder.h:
+
+jni/basetypedef.h:
+
+jni/host_decoder.h:
+
+jni/scdcc_malloc.h:
+
+jni/scdcc_errs.h:

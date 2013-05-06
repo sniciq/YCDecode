@@ -1,4 +1,4 @@
-package com.oyctimes.autocamera;
+package com.yctimes.autocamera;
 
 import java.util.Map;
 

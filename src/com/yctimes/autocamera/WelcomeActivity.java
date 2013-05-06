@@ -1,6 +1,4 @@
-package com.oyctimes.autocamera;
-
-import com.oyctimes.autocamera.R;
+package com.yctimes.autocamera;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,7 +24,7 @@ public class WelcomeActivity extends Activity {
 				} finally {
 					finish();
 					Intent i = new Intent();
-					i.setClassName("com.oyctimes.autocamera", "com.oyctimes.autocamera.MainActivity");
+					i.setClassName("com.yctimes.autocamera", "com.yctimes.autocamera.MainActivity");
 					startActivity(i);
 				}
 			}

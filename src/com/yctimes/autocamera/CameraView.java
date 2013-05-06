@@ -1,4 +1,4 @@
-package com.oyctimes.autocamera;
+package com.yctimes.autocamera;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,13 +27,13 @@ import android.view.SurfaceView;
 import android.widget.Toast;
 
 public class CameraView extends SurfaceView implements SurfaceHolder.Callback, Camera.PictureCallback, BarCodeDecodeOverListener {
-
 	private SurfaceHolder holder;
 	private Camera myCamera;
 	private Context context;
 	private int[] configPicSize;
 	private int takePicPeriod;
 	int frontCamera;
+	boolean isProcessingPic = false;
 	private android.hardware.Camera.CameraInfo cameraInfo = new android.hardware.Camera.CameraInfo();
 	
 	private Timer timer = null;
@@ -103,7 +103,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 				supportedPicSizes.add(s.width + "X" + s.height);
 			}
 			
-//			perameters.setPreviewSize(320, 240);
+//			perameters.setPreviewSize(480, 720);
 			perameters.setPictureSize(configPicSize[0], configPicSize[1]);
 			int rotation = 0;
 			if (frontCamera == CameraInfo.CAMERA_FACING_FRONT) {
@@ -161,10 +161,9 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	@Override
 	public void onPictureTaken(byte[] data, Camera camera) {
 		try {
+			isProcessingPic = true;
 			Bitmap picture = BitmapFactory.decodeByteArray(data, 0, data.length);
 			camera.startPreview();
-			barCodeDecoder.decodeInThread(picture);
-			
 			
 //			//取中间区域
 //			int bw = picture.getWidth() / 2;
@@ -172,6 +171,8 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 //			int x = (picture.getWidth() - bw) / 2;
 //			int y = (picture.getHeight() - bh) /2;
 //			Bitmap nb = Bitmap.createBitmap(picture, x, y, bw, bh);
+			
+			barCodeDecoder.decodeInThread(picture);
 //			
 //			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //			nb.compress(Bitmap.CompressFormat.JPEG, 100, baos);
@@ -218,7 +219,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	}
 
 	private void doFocusAndTakePic() {
-		if(myCamera != null) {
+		if(myCamera != null && !isProcessingPic) {
 			System.out.println("focus start ...");
 			myCamera.autoFocus(focusCallback);
 		}
@@ -251,6 +252,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 
 	@Override
 	public void deCodeOver(Map<String, Object> decodeMap) {
+		isProcessingPic = false;
 		boolean success = (Boolean) decodeMap.get("result");
 		if(success) {
 			String info = (String) decodeMap.get("info");
@@ -259,14 +261,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			((Activity) this.context).startActivityForResult(intent, MainActivity.requestCode_barcode);
 		}
 	}
-
-//	@Override
-//	public boolean onTouchEvent(MotionEvent event) {
-//		this.context.A
-//		this.context.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//		return super.onTouchEvent(event);
-//	}
-	
 }
 
 ////横竖屏处理

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.oyctimes.autocamera"
+    package="com.yctimes.autocamera"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="10"
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.oyctimes.autocamera.WelcomeActivity"
+            android:name="com.yctimes.autocamera.WelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,17 +27,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.oyctimes.autocamera.MainActivity"
+            android:name="com.yctimes.autocamera.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
             </intent-filter>
         </activity>
         <activity
-            android:name="com.oyctimes.autocamera.ResultActivity"
+            android:name="com.yctimes.autocamera.ResultActivity"
             android:label="@string/title_activity_result" >
         </activity>
         <activity
-            android:name="com.oyctimes.autocamera.SettingActivity"
+            android:name="com.yctimes.autocamera.SettingActivity"
             android:label="@string/title_activity_setting" >
         </activity>
     </application>

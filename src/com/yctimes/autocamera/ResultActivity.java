@@ -1,11 +1,7 @@
-package com.oyctimes.autocamera;
-
-import com.oyctimes.autocamera.R;
+package com.yctimes.autocamera;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ResultActivity extends Activity {
