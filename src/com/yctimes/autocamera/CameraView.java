@@ -112,6 +112,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			     rotation = (cameraInfo.orientation + 90) % 360;
 			}
 			perameters.setRotation(rotation);
+			perameters.setZoom(perameters.getMaxZoom()/5);
 			myCamera.setParameters(perameters);
 			myCamera.startPreview();
 			startTimer();
