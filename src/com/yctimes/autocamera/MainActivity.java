@@ -3,16 +3,12 @@ package com.yctimes.autocamera;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
+import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
-import android.view.View.OnTouchListener;
-import android.view.GestureDetector;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.view.View.OnTouchListener;
+import android.view.WindowManager;
 
 public class MainActivity extends Activity implements OnTouchListener, OnGestureListener {
 	private CameraView cameraView;
@@ -42,6 +38,8 @@ public class MainActivity extends Activity implements OnTouchListener, OnGesture
 //				return false;
 //			}
 //		});
+		
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);  
 		
 		setContentView(R.layout.activity_main);
 		appSetting = new AppSetting(this);
@@ -112,10 +110,6 @@ public class MainActivity extends Activity implements OnTouchListener, OnGesture
 		super.onPause();
 	}
 	
-	public void showSetting() {
-		
-	}
-
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		gdetector.onTouchEvent(event);

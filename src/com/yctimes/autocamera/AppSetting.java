@@ -56,8 +56,8 @@ public class AppSetting {
 			sizeArr[1] = Integer.parseInt(ss[1]);
 		}
 		else {
-			sizeArr[0] = 320;
-			sizeArr[1] = 240;
+			sizeArr[0] = 800;
+			sizeArr[1] = 480;
 		}
 		return sizeArr;
 	}

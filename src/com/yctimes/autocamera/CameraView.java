@@ -99,10 +99,10 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			Camera.Parameters perameters = myCamera.getParameters();
 			
 			List<Camera.Size> supportedPictureSizes = perameters.getSupportedPictureSizes();
+			supportedPicSizes.clear();
 			for(Camera.Size s : supportedPictureSizes) {
 				supportedPicSizes.add(s.width + "X" + s.height);
 			}
-			
 //			perameters.setPreviewSize(480, 720);
 			perameters.setPictureSize(configPicSize[0], configPicSize[1]);
 			int rotation = 0;
