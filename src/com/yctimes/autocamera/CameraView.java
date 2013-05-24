@@ -103,7 +103,18 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 			for(Camera.Size s : supportedPictureSizes) {
 				supportedPicSizes.add(s.width + "X" + s.height);
 			}
-//			perameters.setPreviewSize(480, 720);
+			
+			if(configPicSize == null) {
+				configPicSize = new int[2];
+				configPicSize[0] = supportedPictureSizes.get(0).width;
+				configPicSize[1] = supportedPictureSizes.get(0).height;
+			}
+			
+			if(supportedPicSizes.contains("800X480")) {
+				configPicSize[0] = 800;
+				configPicSize[1] = 480;
+			}
+			
 			perameters.setPictureSize(configPicSize[0], configPicSize[1]);
 			int rotation = 0;
 			if (frontCamera == CameraInfo.CAMERA_FACING_FRONT) {
@@ -245,6 +256,10 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 
 	public void setConfigPicSize(int[] configPicSize) {
 		this.configPicSize = configPicSize;
+	}
+
+	public int[] getConfigPicSize() {
+		return configPicSize;
 	}
 
 	public void setTakePicPeriod(int takePicPeriod) {

@@ -130,7 +130,18 @@ public class MainActivity extends Activity implements OnTouchListener, OnGesture
 	public void onLongPress(MotionEvent e) {
 		Intent intent = new Intent(MainActivity.this, SettingActivity.class);
 		intent.putStringArrayListExtra("supportSizes", cameraView.getSupportedPicSizes());
-		intent.putExtra(AppSetting.PictureSize, appSetting.getConfigPictureSize());
+		
+		if(appSetting.getConfigPictureSize() != null) {
+			intent.putExtra(AppSetting.PictureSize, appSetting.getConfigPictureSize());
+		}
+		else if(cameraView.getConfigPicSize() != null) {
+			intent.putExtra(AppSetting.PictureSize, cameraView.getConfigPicSize());
+		}
+		else {
+			Integer[] s = {0, 0};
+			intent.putExtra(AppSetting.PictureSize, s);
+		}
+		
 		intent.putExtra(AppSetting.TakePicPeriod, appSetting.getTakePicPeriod());
 		startActivityForResult(intent, requestCode_setting);
 	}

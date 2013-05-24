@@ -54,12 +54,12 @@ public class AppSetting {
 			String[] ss = size.split("X");
 			sizeArr[0] = Integer.parseInt(ss[0]);
 			sizeArr[1] = Integer.parseInt(ss[1]);
+			
+			return sizeArr;
 		}
 		else {
-			sizeArr[0] = 800;
-			sizeArr[1] = 480;
+			return null;
 		}
-		return sizeArr;
 	}
 
 	public void save(String picSize, int pre) {

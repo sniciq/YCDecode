@@ -21,7 +21,13 @@ public class SettingActivity extends Activity {
 		setContentView(R.layout.activity_setting);
 		
 		picSpinner = (Spinner) findViewById(R.id.picSizeSel);
+		
 		int[] orgPicSize = getIntent().getExtras().getIntArray(AppSetting.PictureSize);
+		if(orgPicSize == null) {
+			orgPicSize = new int[2];
+			orgPicSize[0] = 0; orgPicSize[1] = 0;
+		}
+		
 		int takePicPeriod = getIntent().getExtras().getInt(AppSetting.TakePicPeriod);
 		int selectItemPosition = 0;
 		ArrayList<String> supportedPicSizes = getIntent().getStringArrayListExtra("supportSizes");
