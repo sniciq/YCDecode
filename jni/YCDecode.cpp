@@ -45,8 +45,13 @@ jstring Java_com_yctimes_autocamera_BarCodeDecoder_doDecode(JNIEnv* env,
 //	int xs = (w - bw) / 2;
 //	int ys = (h - bh) /2;
 
-	int bw = w / 1.25 ;
-	int bh = h / 1.25;
+//	int bw = w / 1.25 ;
+//	int bh = h / 1.25;
+//	int xs = (w - bw) / 2;
+//	int ys = (h - bh) /2;
+
+	int bw = w ;
+	int bh = h;
 	int xs = (w - bw) / 2;
 	int ys = (h - bh) /2;
 

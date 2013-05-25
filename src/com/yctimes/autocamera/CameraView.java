@@ -1,5 +1,6 @@
 package com.yctimes.autocamera;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -16,6 +17,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.CameraInfo;
@@ -26,7 +29,9 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
-public class CameraView extends SurfaceView implements SurfaceHolder.Callback, Camera.PictureCallback, BarCodeDecodeOverListener {
+public class CameraView extends SurfaceView implements SurfaceHolder.Callback, BarCodeDecodeOverListener {
+//	Camera.PictureCallback,
+	
 	private SurfaceHolder holder;
 	private Camera myCamera;
 	private Context context;
@@ -40,10 +45,45 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 	private BarCodeDecoder barCodeDecoder;
 	private ArrayList<String> supportedPicSizes = new ArrayList<String>();
 	
-	AutoFocusCallback focusCallback = new AutoFocusCallback() {
+//	private final ShutterCallback shutterCallback = new ShutterCallback() {
+//        public void onShutter() {
+//        	Log.i("AAAAAAAAAAAAACCC", "ffffffff");
+//            AudioManager mgr = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+//            mgr.playSoundEffect(AudioManager.FLAG_PLAY_SOUND);
+//        }
+//    };
+    
+    private final AutoFocusCallback focusCallback = new AutoFocusCallback() {
 		@Override
 		public void onAutoFocus(boolean success, Camera camera) {
-			camera.takePicture(null, null, CameraView.this);
+//			camera.takePicture(shutterCallback, null, CameraView.this);
+//			if(!success)
+//				return;
+			myCamera.setOneShotPreviewCallback(previewCallback);
+		}
+	};
+	
+	private final Camera.PreviewCallback previewCallback = new Camera.PreviewCallback() {
+		@Override
+		public void onPreviewFrame(byte[] data, Camera camera) {
+			Camera.Parameters parameters = camera.getParameters();
+			int imageFormat = parameters.getPreviewFormat();
+			int w = parameters.getPreviewSize().width;
+			int h = parameters.getPreviewSize().height;
+			
+			Rect rect = new Rect(0, 0, w, h);
+			YuvImage yuvImg = new YuvImage(data, imageFormat, w, h, null);
+			try {
+				ByteArrayOutputStream outputstream = new ByteArrayOutputStream();
+				yuvImg.compressToJpeg(rect, 100, outputstream);
+				Bitmap picture = BitmapFactory.decodeByteArray(outputstream.toByteArray(), 0, outputstream.size());
+				if(picture != null) {
+					isProcessingPic = true;
+					barCodeDecoder.decodeInThread(picture);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	};
 
@@ -55,6 +95,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		super(context, attrs);
 		this.context = context;
 		holder = getHolder();
+		holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		holder.addCallback(this);
 		barCodeDecoder = new BarCodeDecoder();
 		barCodeDecoder.addListener(this);
@@ -114,6 +155,10 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 				configPicSize[0] = 800;
 				configPicSize[1] = 480;
 			}
+			else if(supportedPicSizes.contains("640X480")) {
+				configPicSize[0] = 640;
+				configPicSize[1] = 480;
+			}
 			
 			perameters.setPictureSize(configPicSize[0], configPicSize[1]);
 			int rotation = 0;
@@ -170,45 +215,50 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
 		Toast.makeText(this.context, "Save Pic Successfully!", Toast.LENGTH_LONG).show();
 	}
 	
-	@Override
-	public void onPictureTaken(byte[] data, Camera camera) {
-		try {
-			isProcessingPic = true;
-			Bitmap picture = BitmapFactory.decodeByteArray(data, 0, data.length);
-			camera.startPreview();
-			
-//			//取中间区域
-//			int bw = picture.getWidth() / 2;
-//			int bh = picture.getHeight() / 2;
-//			int x = (picture.getWidth() - bw) / 2;
-//			int y = (picture.getHeight() - bh) /2;
-//			Bitmap nb = Bitmap.createBitmap(picture, x, y, bw, bh);
-			
-			barCodeDecoder.decodeInThread(picture);
+//	@Override
+//	public void onPictureTaken(byte[] data, Camera camera) {
+//		try {
 //			
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			nb.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//			baos.close();
+//			Log.i("AAAAAAAAAAAAACCC", "onPictureTaken");
 //			
-//			//FIXME savePicToGallery
-//			savePicToGallery(nb);
-//			Map<String, Object> decodeMap = barCodeDecoder.decode(nb);
-//			boolean success = (Boolean) decodeMap.get("result");
-//			if(success) {
-//				String info = (String) decodeMap.get("info");
-//				Intent intent = new Intent(this.context, ResultActivity.class);
-//				intent.putExtra("info", info);
-//				
-//				((Activity) this.context).startActivityForResult(intent, MainActivity.requestCode_barcode);
-//			}
-//			else {
-//				camera.startPreview();
-//			}
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+//			isProcessingPic = true;
+//			Bitmap picture = BitmapFactory.decodeByteArray(data, 0, data.length);
+//			camera.startPreview();
+//			barCodeDecoder.decodeInThread(picture);
+//			
+//			
+////			//取中间区域
+////			int bw = picture.getWidth() / 2;
+////			int bh = picture.getHeight() / 2;
+////			int x = (picture.getWidth() - bw) / 2;
+////			int y = (picture.getHeight() - bh) /2;
+////			Bitmap nb = Bitmap.createBitmap(picture, x, y, bw, bh);
+//			
+//			
+////			
+////			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+////			nb.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+////			baos.close();
+////			
+////			//FIXME savePicToGallery
+////			savePicToGallery(nb);
+////			Map<String, Object> decodeMap = barCodeDecoder.decode(nb);
+////			boolean success = (Boolean) decodeMap.get("result");
+////			if(success) {
+////				String info = (String) decodeMap.get("info");
+////				Intent intent = new Intent(this.context, ResultActivity.class);
+////				intent.putExtra("info", info);
+////				
+////				((Activity) this.context).startActivityForResult(intent, MainActivity.requestCode_barcode);
+////			}
+////			else {
+////				camera.startPreview();
+////			}
+//		}
+//		catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
 	public void pause() {
 		this.timer.cancel();

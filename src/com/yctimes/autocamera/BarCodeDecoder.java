@@ -51,6 +51,9 @@ public class BarCodeDecoder {
     }
 
 	public void decodeInThread(final Bitmap picture) {
+		if(picture == null)
+			return;
+		
 		new Thread() {
 			public void run() {
 				Map<String, Object> decodeMap = BarCodeDecoder.this.decode(picture);
